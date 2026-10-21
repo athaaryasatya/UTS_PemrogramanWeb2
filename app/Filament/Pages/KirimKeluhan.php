@@ -29,8 +29,8 @@ public function submit()
 {
     // 1. Tentukan minimal kata berdasarkan urgensi
     $minWords = match (strtolower($this->urgensi)) {
-        'rendah' => 15,
-        'sedang' => 25,
+        'rendah' => 3,
+        'sedang' => 5,
         'tinggi' => 50,
         default  => 15,
     };
