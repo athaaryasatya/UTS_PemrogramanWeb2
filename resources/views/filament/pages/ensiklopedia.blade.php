@@ -30,7 +30,7 @@
         </div>
     </x-filament::section>
 
-   
+    {{-- FORM CREATE / UPDATE --}}
     @if($tampilForm)
         <x-filament::section :heading="$editId ? 'Edit Entri' : 'Tambah Entri Baru'">
             <form wire:submit="simpan" style="display:flex; flex-direction:column; gap:1rem;">
@@ -86,7 +86,7 @@
         </x-filament::section>
     @endif
 
-   
+    {{-- DAFTAR ENTRI --}}
     <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:1rem;">
         @forelse($entri as $item)
             @php
@@ -102,9 +102,17 @@
 
             <div style="background:#fff; border:1px solid #e5e7eb; border-radius:0.75rem; padding:1rem; display:flex; flex-direction:column; gap:0.625rem;">
                 <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
-                    <span style="background:{{ $warna[0] }}; color:{{ $warna[1] }}; font-size:0.75rem; font-weight:600; padding:0.125rem 0.625rem; border-radius:999px;">
-                        {{ $item->kategori }}
-                    </span>
+                    <div style="display:flex; align-items:center; gap:0.375rem; flex-wrap:wrap;">
+                        <span style="background:{{ $warna[0] }}; color:{{ $warna[1] }}; font-size:0.75rem; font-weight:600; padding:0.125rem 0.625rem; border-radius:999px;">
+                            {{ $item->kategori }}
+                        </span>
+                        <span style="background:#fef9c3; color:#854d0e; font-size:0.75rem; font-weight:600; padding:0.125rem 0.625rem; border-radius:999px;">
+                            Baru 
+                        </span>
+                        <span style="background:#fef9c3; color:#854d0e; font-size:0.75rem; font-weight:600; padding:0.125rem 0.625rem; border-radius:999px;">
+                            Baru banget
+                        </span>
+                    </div>
                     @if($milikSaya)
                         <span style="font-size:0.75rem; color:#6b7280;">Entri saya</span>
                     @elseif($item->id_petani === null)
